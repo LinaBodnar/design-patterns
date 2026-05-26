@@ -13,7 +13,6 @@ public class Zombie : IMob {
     public void Spawn() => Console.WriteLine("[Abstract Factory] Зомбі заспавнився в пустелі!");
     public void Accept(IMobVisitor visitor)
     {
-        // Тепер зомбі правильно приймає відвідувача-зілля
         visitor.VisitZombie(this); 
     }
 }

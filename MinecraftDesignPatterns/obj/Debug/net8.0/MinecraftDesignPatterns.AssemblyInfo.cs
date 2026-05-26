@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MinecraftDesignPatterns")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4e8d6ef7a164ace0b34b83d4eecc0aaecb12749")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a374c5953d066de15c68337a31de2d0d03018b38")]
 [assembly: System.Reflection.AssemblyProductAttribute("MinecraftDesignPatterns")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MinecraftDesignPatterns")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

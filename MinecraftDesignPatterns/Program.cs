@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.Extensions.DependencyInjection;
 using MinecraftDesignPatterns.Creational.FactoryMethod;
 using MinecraftDesignPatterns.Creational.AbstractFactory;
 using MinecraftDesignPatterns.Creational.Builder;
@@ -30,6 +31,8 @@ using IMob = MinecraftDesignPatterns.Creational.AbstractFactory.IMob;
 using MinecraftDesignPatterns.LambdaExpression;
 using MinecraftDesignPatterns.FunctionalPatterns;
 
+using MinecraftDesignPatterns.DependencyInjection;
+
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
 while (true)
@@ -40,7 +43,7 @@ while (true)
     Console.WriteLine("3. Лабораторна робота №3: Поведінкові патерни");
     Console.WriteLine("4. Лабораторна робота №4: Лямбда-вирази");
     Console.WriteLine("5. Лабораторна робота №5: Функціональні патерни");
-    Console.WriteLine("6. Лабораторна робота №6: [додано згодом]");
+    Console.WriteLine("6. Лабораторна робота №6: Інєкції залежностей");
     Console.WriteLine("0. Вихід з програми");
     Console.WriteLine("=================================================");
     Console.Write("Оберіть номер лабораторної роботи: ");
@@ -339,5 +342,27 @@ void RunLab5()
 void RunLab6()
 {
     Console.WriteLine("ЛАБОРАТОРНА РОБОТА №6\n");
+    
+    Console.WriteLine("[DI] 1. Створення контейнера та реєстрація графа залежностей...");
+    
+    var services = new Microsoft.Extensions.DependencyInjection.ServiceCollection();
+    
+    services.AddSingleton<ILoggerService, ConsoleLoggerService>();
+    services.AddSingleton<IDatabaseService, MinecraftDatabaseService>();
+    services.AddSingleton<IConfigService, ServerConfigService>();
+    
+    services.AddTransient<IPlayerRegistry, PlayerRegistry>();
+    services.AddTransient<IWorldManager, WorldManager>();
+    
+    services.AddTransient<IMinecraftServer, MinecraftServer>();
+    
+    var container = services.BuildServiceProvider();
+
+    Console.WriteLine("[DI] 2. Запитуємо головну залежність (ядро сервера) з контейнера...");
+    
+    var server = container.GetRequiredService<IMinecraftServer>();
+
+    Console.WriteLine("[DI] 3. Запуск об'єкта, зібраного через DI-контейнер:\n");
+    server.Start();
 
 }

@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ssjBKcMUCVY=",
+  "dgSpecHash": "B/c1rt+IZiY=",
   "success": true,
   "projectFilePath": "C:\\Users\\Home\\RiderProjects\\MinecraftDesignPatterns\\MinecraftDesignPatterns\\MinecraftDesignPatterns.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Home\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\11.0.0-preview.4.26230.115\\microsoft.extensions.dependencyinjection.11.0.0-preview.4.26230.115.nupkg.sha512",
+    "C:\\Users\\Home\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\11.0.0-preview.4.26230.115\\microsoft.extensions.dependencyinjection.abstractions.11.0.0-preview.4.26230.115.nupkg.sha512"
+  ],
   "logs": []
 }

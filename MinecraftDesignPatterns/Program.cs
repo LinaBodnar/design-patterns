@@ -26,6 +26,9 @@ using MinecraftDesignPatterns.Behavioral.TemplateMethod;
 using MinecraftDesignPatterns.Behavioral.Visitor;
 using IMob = MinecraftDesignPatterns.Creational.AbstractFactory.IMob;
 
+using System.Collections.Generic;
+using MinecraftDesignPatterns.LambdaExpression;
+
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
 Console.WriteLine("Лаба 1: породжувальні патерни\n");
@@ -148,7 +151,7 @@ Console.Write("Вміст скрині: ");
 while (it.HasNext()) { Console.Write($"[{it.Next()}] "); }
 Console.WriteLine();
 
-Console.WriteLine("\n--- 4. Mediator ---");
+Console.WriteLine("\n4. Mediator");
 var chat = new ServerChatMediator();
 var alex = new PlayerElement("Alex", chat);
 var notch = new PlayerElement("Notch", chat);
@@ -190,3 +193,42 @@ Console.WriteLine("\n10. Visitor");
 IMob greenCreeper = new Creeper();
 IMobVisitor potion = new SplashPotionOfHealing();
 greenCreeper.Accept(potion);
+
+
+Console.WriteLine("Лаба 4: лямбда-вирази\n");
+
+List<int> numbers = new List<int> { 4, 7, 2, 9, 12, 5, 2, 14, 11 };
+List<double> doubleNumbers = new List<double> { 1.5, 3.5, 5.0, 2.0 };
+List<string> wordsList = new List<string> { "Apple", "Banana", "Orange", "Kiwi", "Grape" };
+List<string> mixedStrings = new List<string> { "", "", "CSharp", "Lambda", "Parallel" };
+List<string> upperCaseStrings = new List<string> { "Hello", "World", "Developer" };
+
+Console.WriteLine($"1. Непарні числа зі списку: {string.Join(", ", LambdaTasks.FilterOddNumbers(numbers))}");
+
+Console.WriteLine($"2. Середнє значення дійсних чисел: {LambdaTasks.FindAverage(doubleNumbers)}");
+
+Console.WriteLine($"3. Сортування в алфавітному порядку: {string.Join(", ", LambdaTasks.SortAlphabetically(wordsList))}");
+
+Console.WriteLine($"4. Сума всіх парних чисел: {LambdaTasks.SumOfEvenNumbers(numbers)}");
+
+int n = 6;
+Console.WriteLine($"5. Факторіал числа {n}: {LambdaTasks.CalculateFactorial(n)}");
+
+List<int> simpleList = new List<int> { 1, 2, 3, 4, 5 };
+var (mult, sum) = LambdaTasks.MultiplyAndSum(simpleList);
+Console.WriteLine($"6. Для списку (1, 2, 3, 4, 5): Добуток = {mult}, Сума = {sum}");
+
+Console.WriteLine($"7. Квадрати чисел списку (1..5): {string.Join(", ", LambdaTasks.SquareNumbers(simpleList))}");
+
+Console.WriteLine($"8. Сортування за довжиною рядків: {string.Join(", ", LambdaTasks.SortByLength(wordsList))}");
+
+string text = "Лямбда вирази та інструменти LINQ працюють дуже ефективно";
+Console.WriteLine($"9. Кількість слів у реченні: {LambdaTasks.CountWords(text)}");
+
+Console.WriteLine($"10. Перший непорожній рядок у списку: '{LambdaTasks.FindFirstNonEmptyString(mixedStrings)}'");
+
+Console.WriteLine($"11. Чи всі рядки починаються з великої літери? Список 1: {LambdaTasks.AreAllStartingWithUpperCase(upperCaseStrings)}, Список 2: {LambdaTasks.AreAllStartingWithUpperCase(mixedStrings)}");
+
+Console.WriteLine($"12. Друге за величиною число у списку: {LambdaTasks.FindSecondLargest(numbers)}");
+
+Console.WriteLine($"13. Найбільше парне число у списку: {LambdaTasks.FindMaxEvenNumber(numbers)}");

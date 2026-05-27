@@ -13,7 +13,7 @@ public class BlockTypeFlyweight
 
     public void Render(int x, int y, int z)
     {
-        Console.WriteLine($"[Flyweight] Рендер блоку '{Name}' на колінах ({x}, {y}, {z}) використовуючи спільну текстуру: {TextureData}");
+        Console.WriteLine($"[Flyweight] Рендер блоку '{Name}' на координатах ({x}, {y}, {z}) використовуючи спільну текстуру: {TextureData}");
     }
 }
 

@@ -7,6 +7,7 @@ public class House
     public bool HasWindows { get; set; }
     public void Show() => Console.WriteLine($"[Builder] Збудовано будинок: стіни з {Walls}, дах з {Roof}, вікна: {HasWindows}");
 }
+// класика першої ночі в майнкрафті
 
 public class HouseBuilder 
 {
